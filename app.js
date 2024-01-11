@@ -16,24 +16,30 @@
 
 // main();
 
+const userListEl = document.querySelector('.movie-list');
+
 async function main() {
     const users = await fetch("http://www.omdbapi.com/?apikey=f5bbb04b&s=fast")
     const usersData = await users.json();
-    // const userListEl = document.querySelector('.movie-list');
-    // userListEl.innerHTML = 
-    usersData.Search.map((movie) => 
-        `<div class="movie">
-        <div class="movie-card">
-            <div class="movie-card__container">
-                <h3 class="movie-poster"></h3>
-                <p class="movie-title">Movie Title</p>
-                <p class="movie-type">Movie Type</p>
-                <p class="movie-year">Movie Year</p>
-            </div>
-        </div>
-    </div>`
-    ).join("")
-    console.log(usersData.Search)
+    userListEl.innerHTML = usersData.Search.map((movie) => movieHTML(movie)).join("")
+    console.log(usersData)
 }
 
 main();
+
+function movieHTML(movie) {
+    return `<div class="movie">
+    <div class="movie-card">
+        <div class="movie-card__container">
+            <h3 class="movie-poster">
+            <img src="${movie.Poster}" alt="" target="_blank"></h3>
+            <p class="movie-title">${movie.Title}</p>
+            <p class="movie-year">${movie.Year}</p>
+        </div>
+    </div>
+</div>`
+}
+
+function onSearchChange(event) {
+    console.log(event)
+}

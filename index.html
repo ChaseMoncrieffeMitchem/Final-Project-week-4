@@ -7,15 +7,28 @@
     <script src="./app.js" defer></script>
 </head>
 <body>
+    <nav>
+        <div class="nav__container container">
+            <div class="nav__row row">
+                <div class="movie__search--container">
+                    <label class="movie__search--label">
+                        Search by Movie Title
+                    </label>
+                    <input type="text" onchange="onSearchChange(event)">
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="movie-list">
                 <div class="movie">
                     <div class="movie-card">
                         <div class="movie-card__container">
-                            <h3 class="movie-poster"></h3>
+                            <h3 class="movie-poster">
+                                <img src="" alt="">
+                            </h3>
                             <p class="movie-title">Movie Title</p>
-                            <p class="movie-type">Movie Type</p>
                             <p class="movie-year">Movie Year</p>
                         </div>
                     </div>
